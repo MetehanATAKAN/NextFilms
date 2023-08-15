@@ -7,13 +7,23 @@ import genres from '@/mocks/genres.json';
 import Categories from '@/components/categories';
 import MoviesSection from '@/components/movies-section';
 
-const HomeContainer = () => {
+const HomeContainer = ({
+  selectedCategory
+}) => {
+  
   return (
     <>
         <FeaturedMovie movie={movies.results[0]} isCompact={true} />
         <Categories categories={genres.genres.slice(0,5)}/>
-        <MoviesSection movies={movies.results.slice(0,6)} head={'animation'}/>
-        <MoviesSection movies={movies.results.slice(6,12)} head={'populer films'}/>
+       {
+        selectedCategory.movies.length > 0 && (
+          <MoviesSection 
+          movies={selectedCategory.movies} 
+          head={genres.genres.find(genre => Number(genre.id) === Number(selectedCategory.id)).name}
+          />
+        )
+       }
+        <MoviesSection movies={movies.results.slice(7,14)} head={'populer films'}/>
     </>
   )
 }

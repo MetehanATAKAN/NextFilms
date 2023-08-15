@@ -11,7 +11,7 @@ const Categories = ({
     <div className={styles.categories}>
         {
             categories?.map(categorie => (
-                <Link key={categorie.id} href='./' >
+                <Link key={categorie.id} href={`./${categorie.id}`} >
                     {categorie.name}
                 </Link>
             ))
