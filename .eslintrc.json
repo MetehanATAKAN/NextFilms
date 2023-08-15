@@ -1,3 +1,14 @@
 {
-  "extends": ["next/babel","next/core-web-vitals"]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {},
+        "transform-runtime": {},
+        "styled-jsx": {},
+        "class-properties": {}
+      }
+    ]
+  ],
+  "plugins": []
 }
